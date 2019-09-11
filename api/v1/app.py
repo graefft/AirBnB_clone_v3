@@ -30,4 +30,3 @@ if __name__ == '__main__':
     if environ.get('HBNB_API_PORT'):
         port = getenv('HBNB_API_PORT')
     app.run(host=host, port=port, threaded=True)
-
