@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 # Flask module to return status of API
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from models import storage
 from api.v1.views import app_views
 from os import getenv, environ
 
 
 app = Flask(__name__)
-
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] - True
 app.register_blueprint(app_views, url_prefix='/api/v1')
 
 
@@ -19,6 +19,11 @@ def clean_up(self):
 @app.errorhandler(404)
 def not_found(e):
     return jsonify(error="error\": \"Not found"), 404
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify(error="Not found"), 404
 
 
 if __name__ == '__main__':
