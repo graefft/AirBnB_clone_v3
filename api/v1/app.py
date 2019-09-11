@@ -16,10 +16,6 @@ def clean_up(self):
     '''closes storage'''
     storage.close()
 
-@app.errorhandler(404)
-def not_found(e):
-    return jsonify(error="error\": \"Not found"), 404
-
 
 @app.errorhandler(404)
 def not_found(e):
@@ -35,4 +31,3 @@ if __name__ == '__main__':
         port = getenv('HBNB_API_PORT')
     app.run(host=host, port=port, threaded=True)
 
-    
