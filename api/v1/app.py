@@ -19,6 +19,7 @@ def clean_up(self):
 
 @app.errorhandler(404)
 def not_found(e):
+    '''returns not found on 404'''
     return jsonify(error="Not found"), 404
 
 
