@@ -14,7 +14,7 @@ def allamenities():
     """
     Retrieves all amenity objects
     """
-    return jsonify([s.to_dict() for a in storage.all("Amenity").values()]), 200
+    return jsonify([a.to_dict() for a in storage.all("Amenity").values()]), 200
 
 
 @app_views.route('/amenities', methods=['POST'], strict_slashes=False)
