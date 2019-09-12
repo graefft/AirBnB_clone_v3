@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Flask module to return status of API
+'''Flask module to return status of API'''
 from flask import Flask, Blueprint, jsonify
 from models import storage
 from api.v1.views import app_views
@@ -19,6 +19,7 @@ def clean_up(self):
 
 @app.errorhandler(404)
 def not_found(e):
+    '''returns not found on 404'''
     return jsonify(error="Not found"), 404
 
 

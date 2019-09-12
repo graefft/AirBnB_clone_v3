@@ -89,7 +89,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_get(self):
         """Test that get correctly gets a designated object from storage"""
-        t1 = models.storage.get()
+        t1 = models.storage.get(None, None)
         self.assertEqual(t1, None)
         t2 = State(name="Cameron")
         t2.save()
