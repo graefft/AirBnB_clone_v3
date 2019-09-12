@@ -52,7 +52,7 @@ def review_delete(review_id):
                  strict_slashes=False)
 def review_post(place_id):
     '''creates a Review'''
-    place = storage.get('City', place_id)
+    place = storage.get('Place', place_id)
     if not place:
         abort(404)
     data = request.get_json(silent=True)
@@ -83,7 +83,8 @@ def review_put(review_id):
     if not data:
         return jsonify({"error": "Not a JSON"}), 400
     for key, value in data.items():
-        if key not in ['id', 'created_at', 'updated_at']:
+        if key not in ['id', 'user_id', 'place_id',
+                       'created_at', 'updated_at']:
             setattr(review, key, value)
     review.save()
     output = review.to_dict()
